@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Entraînements</title>
+  <link rel="stylesheet" href="style_training.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+
+<div id="header-container"></div> <!-- Conteneur pour le header -->
+
+<script>
+  // Charger le header depuis le fichier header.html
+  fetch('header.html')
+          .then(response => response.text())
+          .then(data => document.getElementById('header-container').innerHTML = data);
+</script>
+
+<div class="container">
+  <h1>Gestion des Entraînements</h1>
+
+  <div class="add-container">
+    <button id="openAddModalButton">Ajouter un Entraînement</button>
+  </div>
+
+  <table id="trainingsTable">
+    <thead>
+    <tr>
+      <th>Numéro</th>
+      <th>Numéro d'Équipe</th>
+      <th>Date et Heure de Début</th>
+      <th>Date et Heure de Fin</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- Modal pour Ajouter un Entraînement -->
+<div id="addModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeAddModal">&times;</span>
+    <h2>Ajouter un Entraînement</h2>
+    <form id="addTrainingForm">
+      <div class="form-group">
+        <label for="addEqNumero">Équipe:</label>
+        <select id="addEqNumero" name="eqNumero" required>
+          <option value="">-- Sélectionnez une équipe --</option>
+          <!-- Options ajoutées via JavaScript -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="addTrDateDeb">Date et Heure de Début:</label>
+        <input type="datetime-local" id="addTrDateDeb" name="trDateDeb" required>
+      </div>
+
+      <div class="form-group">
+        <label for="addTrDateFin">Date et Heure de Fin:</label>
+        <input type="datetime-local" id="addTrDateFin" name="trDateFin" required>
+      </div>
+
+      <div class="form-group">
+        <label for="addMaterielsContainer">Matériels Utilisés:</label>
+        <div id="addMaterielsContainer">
+          <!-- Cases à cocher pour les matériels ajoutées via JavaScript -->
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" class="cancel-button" id="cancelAdd">Annuler</button>
+        <button type="submit" class="save-button">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal pour Modifier un Entraînement -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeEditModal">&times;</span>
+    <h2>Modifier un Entraînement</h2>
+    <form id="editTrainingForm">
+      <input type="hidden" id="editTrNumero" name="trNumero">
+
+      <div class="form-group">
+        <label for="editEqNumero">Équipe:</label>
+        <select id="editEqNumero" name="eqNumero" required>
+          <option value="">-- Sélectionnez une équipe --</option>
+          <!-- Options ajoutées via JavaScript -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="editTrDateDeb">Date et Heure de Début:</label>
+        <input type="datetime-local" id="editTrDateDeb" name="trDateDeb" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editTrDateFin">Date et Heure de Fin:</label>
+        <input type="datetime-local" id="editTrDateFin" name="trDateFin" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editMaterielsContainer">Matériels Utilisés:</label>
+        <div id="editMaterielsContainer">
+          <!-- Cases à cocher pour les matériels ajoutées via JavaScript -->
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" class="cancel-button" id="cancelEdit">Annuler</button>
+        <button type="submit" class="save-button">Mettre à Jour</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Lien vers les fichiers JavaScript externes -->
+<!-- SweetAlert pour des alertes élégantes (optionnel) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="training_script.js"></script>
+</body>
+</html>

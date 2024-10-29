@@ -1,0 +1,55 @@
+/* Header Styles */
+.header-nav {
+    background-color: #1a242f; /* Couleur légèrement plus foncée pour plus de professionnalisme */
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner de la profondeur */
+    position: relative;
+}
+
+.header-nav h1 {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: 600;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Typographie moderne */
+}
+
+.header-nav nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 15px;
+}
+
+.header-nav nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 25px; /* Boutons arrondis pour un aspect plus soigné */
+    font-size: 0.95em;
+    font-weight: 500;
+    background-color: transparent; /* Transparence par défaut */
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid transparent;
+}
+
+.header-nav nav a:hover {
+    background-color: #3498db; /* Couleur de fond au survol */
+    color: #ffffff;
+    border: 1px solid #3498db; /* Bordure au survol pour un effet bouton */
+}
+
+.header-nav nav a:active {
+    background-color: #2980b9; /* Couleur plus foncée au clic */
+}
+
+hr {
+    margin: 0;
+    border: none;
+    height: 2px;
+    background-color: #3498db; /* Soulignement avec la couleur principale */
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 2px;
+}

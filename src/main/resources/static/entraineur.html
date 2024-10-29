@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Entraîneurs</title>
+    <link rel="stylesheet" href="style_entraineur.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+
+<div id="header-container"></div> <!-- Conteneur pour le header -->
+
+<script>
+    // Charger le header depuis le fichier header.html
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header-container').innerHTML = data);
+</script>
+
+<div class="container">
+    <h1>Gestion des Entraîneurs</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchNom" placeholder="Rechercher par nom">
+        <button id="searchButton">Rechercher</button>
+        <button id="resetButton">Réinitialiser</button>
+    </div>
+
+    <div class="add-container">
+        <button id="openAddModalButton">Ajouter un Entraîneur</button>
+    </div>
+
+    <table id="entraineursTable">
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de Naissance</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Numéro d'Équipe</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Modal pour Ajouter un Entraîneur -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeAddModal">&times;</span>
+        <h2>Ajouter un Entraîneur</h2>
+        <form id="addEntraineurForm">
+            <div class="form-group">
+                <label for="addEnNom">Nom:</label>
+                <input type="text" id="addEnNom" name="enNom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="addEnPrenom">Prénom:</label>
+                <input type="text" id="addEnPrenom" name="enPrenom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="addEnDateNai">Date de Naissance:</label>
+                <input type="date" id="addEnDateNai" name="enDateNai" required>
+            </div>
+
+            <div class="form-group">
+                <label for="addEnEmail">Email:</label>
+                <input type="email" id="addEnEmail" name="enEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="addEnTelephone">Téléphone:</label>
+                <input type="text" id="addEnTelephone" name="enTelephone">
+            </div>
+
+            <div class="form-group">
+                <label for="addEnEquipe">Équipe:</label>
+                <select id="addEnEquipe" name="eqNumero" required>
+                    <option value="">-- Sélectionnez une équipe --</option>
+                    <!-- Options ajoutées via JavaScript -->
+                </select>
+            </div>
+
+            <div class="modal-buttons">
+                <button type="button" class="cancel-button" id="cancelAdd">Annuler</button>
+                <button type="submit" class="save-button">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal pour Modifier un Entraîneur -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeEditModal">&times;</span>
+        <h2>Modifier un Entraîneur</h2>
+        <form id="editEntraineurForm">
+            <input type="hidden" id="editEnNumero" name="enNumero">
+
+            <div class="form-group">
+                <label for="editEnNom">Nom:</label>
+                <input type="text" id="editEnNom" name="enNom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editEnPrenom">Prénom:</label>
+                <input type="text" id="editEnPrenom" name="enPrenom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editEnDateNai">Date de Naissance:</label>
+                <input type="date" id="editEnDateNai" name="enDateNai" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editEnEmail">Email:</label>
+                <input type="email" id="editEnEmail" name="enEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editEnTelephone">Téléphone:</label>
+                <input type="text" id="editEnTelephone" name="enTelephone">
+            </div>
+
+            <div class="form-group">
+                <label for="editEnEquipe">Équipe:</label>
+                <select id="editEnEquipe" name="eqNumero" required>
+                    <option value="">-- Sélectionnez une équipe --</option>
+                    <!-- Options ajoutées via JavaScript -->
+                </select>
+            </div>
+
+            <div class="modal-buttons">
+                <button type="button" class="cancel-button" id="cancelEdit">Annuler</button>
+                <button type="submit" class="save-button">Mettre à Jour</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Lien vers les fichiers JavaScript externes -->
+<!-- SweetAlert pour des alertes élégantes (optionnel) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="coach_script.js"></script>
+</body>
+</html>

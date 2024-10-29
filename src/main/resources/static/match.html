@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Matchs</title>
+    <link rel="stylesheet" href="style_match.css">
+</head>
+<body>
+
+<div id="header-container"></div> <!-- Conteneur pour le header -->
+
+<script>
+    // Charger le header depuis le fichier header.html
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header-container').innerHTML = data);
+</script>
+
+<h1>Gestion des Matchs</h1>
+<button id="addMatchButton">Ajouter un Match</button>
+
+<table id="matchesTable">
+    <thead>
+    <tr>
+        <th>Numéro</th>
+        <th>Équipe</th>
+        <th>Équipe Adverse</th>
+        <th>Date</th>
+        <th>Lieu</th>
+        <th>Extérieur</th>
+        <th>Buts Encaissés</th>
+        <th>Buts Marqués</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<div id="matchFormContainer" class="modal">
+    <!-- Formulaire d'ajout/modification -->
+</div>
+
+<script src="match_script.js"></script>
+</body>
+</html>

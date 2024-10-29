@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Joueurs</title>
+    <link rel="stylesheet" href="style_joueur.css">
+</head>
+<body>
+
+<div id="header-container"></div> <!-- Conteneur pour le header -->
+
+<script>
+    // Charger le header depuis le fichier header.html
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header-container').innerHTML = data);
+</script>
+
+<!-- Contenu spécifique à la gestion des joueurs -->
+<div class="header-content">
+    <h1>Gestion des Joueurs</h1>
+    <button onclick="loadJoueurs()">Afficher tous les joueurs</button>
+    <button onclick="loadJoueursParPoste()">Afficher joueurs par poste</button>
+    <button onclick="loadJoueursPlusDe20Ans()">Afficher joueurs > 20 ans</button>
+    <button onclick="openAddModal()">Ajouter un joueur</button>
+    <div id="loadingIndicator">Chargement...</div>
+</div>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de Naissance</th>
+            <th>Email</th>
+            <th>Poste</th>
+            <th>Téléphone</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="joueursTableBody"></tbody>
+    </table>
+</main>
+
+<!-- Modals et scripts spécifiques à la gestion des joueurs -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddModal()">&times;</span>
+        <h2>Ajouter un Joueur</h2>
+        <form id="addJoueurForm">
+            <label for="addNom">Nom:</label>
+            <input type="text" id="addNom" name="nom" required>
+            <label for="addPrenom">Prénom:</label>
+            <input type="text" id="addPrenom" name="prenom" required>
+            <label for="addDateNaissance">Date de Naissance:</label>
+            <input type="date" id="addDateNaissance" name="dateNaissance" required>
+            <label for="addEmail">Email:</label>
+            <input type="email" id="addEmail" name="email" required>
+            <label for="addPoste">Poste:</label>
+            <input type="text" id="addPoste" name="poste" required>
+            <label for="addTelephone">Téléphone:</label>
+            <input type="text" id="addTelephone" name="telephone" required>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Player Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Modifier un Joueur</h2>
+        <form id="editJoueurForm">
+            <input type="hidden" id="editNumero" name="numero">
+            <label for="editNom">Nom:</label>
+            <input type="text" id="editNom" name="nom" required>
+            <label for="editPrenom">Prénom:</label>
+            <input type="text" id="editPrenom" name="prenom" required>
+            <label for="editDateNaissance">Date de Naissance:</label>
+            <input type="date" id="editDateNaissance" name="dateNaissance" required>
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="email" required>
+            <label for="editPoste">Poste:</label>
+            <input type="text" id="editPoste" name="poste" required>
+            <label for="editTelephone">Téléphone:</label>
+            <input type="text" id="editTelephone" name="telephone" required>
+            <button type="submit">Modifier</button>
+        </form>
+    </div>
+</div>
+
+<script src="joueur_script.js"></script>
+</body>
+</html>
