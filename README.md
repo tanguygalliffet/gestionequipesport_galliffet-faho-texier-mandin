@@ -48,3 +48,14 @@ Connexion à la base de données en utilisant "oracle.jdbc.OracleDriver"
 
 
 
+
+## Tester les interfaces
+
+1. Cloner le dépot
+
+2. Lancer le projet Spring Boot
+
+3. Aller sur 'http://localhost:8091/joueur.html'
+
+4. Naviguer sur les différentes interfaces en utilisant les boutons disponibles sur le header de la page
+    
